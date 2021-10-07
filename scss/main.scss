@@ -1,0 +1,118 @@
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+:root {
+    box-sizing: border-box;
+    --violet: hsl(257, 40%, 49%);
+    --soft-magenta: hsl(300, 69%, 71%);
+    --bg-image: url(../images/bg-mobile.svg);
+    --txt-font: "Open Sans", sans-serif;
+    --title-font: "Poppins", sans-serif;
+}
+
+body {
+    background-color: var(--violet);
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    font-family: var(--txt-font);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 4em 1fr 4em;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-family: var(--title-font);
+}
+
+strong {
+    font-weight: normal;
+}
+
+img {
+    max-width: 100%;
+    display: inline-block;
+}
+
+a {
+    color: inherit;
+}
+
+.button {
+    border-width: 0;
+    padding: 0.7em 5em;
+    border-radius: 2em;
+    color: var(--violet);
+    box-shadow: 0 0.16em 0.32em #0004;
+}
+
+.header {
+    display: flex;
+    max-height: 2em;
+    &__logo {
+        transform: translateX(-20%);
+    }
+}
+
+.main {
+    padding: 1em 2em;
+}
+
+.footer {
+    &__list {
+        display: flex;
+        padding-left: 0;
+        justify-content: center;
+        column-gap: 1em;
+    }
+    &__item {
+        list-style-type: none;
+    }
+
+    &__link {
+        border: 1px solid;
+        /* padding: 0.4em; */
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        width: 2em;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration-line: none;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    :root {
+        --bg-image: url(../images/bg-desktop.svg);
+    }
+    h1{
+        font-size: revert;
+    }
+    body{
+        text-align: unset;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .button{
+        padding: 1em 4em;
+    }
+    .header__logo{
+        transform: revert;
+    }
+    .main{
+        display: grid;
+        grid-template-columns: 6fr 4fr;
+        align-items: center;
+    }
+    .footer__list{
+        justify-content:flex-end;
+    }
+}
